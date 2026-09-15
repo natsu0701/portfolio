@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+:root {
+  --canvas-dark: #0b0e11;
+  --body: #eaecef;
+  --primary: #fcd535;
+  --primary-active: #f0b90b;
+  --ink: #181a20;
+  --muted: #707a8a;
+  --muted-strong: #929aa5;
+  --hairline-dark: #2b3139;
+  --surface-card: #1e2329;
+  --surface-elevated: #2b3139;
+  --surface-soft-light: #fafafa;
+  --on-primary: #181a20;
+  --on-dark: #ffffff;
+}
+
+@theme inline {
+  --color-canvas: var(--canvas-dark);
+  --color-body: var(--body);
+  --color-primary: var(--primary);
+  --color-primary-active: var(--primary-active);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-muted-strong: var(--muted-strong);
+  --color-hairline: var(--hairline-dark);
+  --color-card: var(--surface-card);
+  --color-elevated: var(--surface-elevated);
+  --color-footer: var(--surface-soft-light);
+  --color-on-primary: var(--on-primary);
+  --color-on-dark: var(--on-dark);
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-jetbrains);
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-xl: 12px;
+  --spacing-section: 80px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--canvas-dark);
+  color: var(--body);
+  font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--primary) 35%, transparent);
+  color: var(--on-dark);
+}
