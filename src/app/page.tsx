@@ -3,7 +3,7 @@ import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
-import { Projects } from "@/components/Projects";
+import { WorkSection } from "@/components/WorkSection";
 
 export default function Home() {
   return (
@@ -11,7 +11,7 @@ export default function Home() {
       <Header />
       <main className="flex-1">
         <Hero />
-        <Projects />
+        <WorkSection />
         <About />
         <Contact />
       </main>

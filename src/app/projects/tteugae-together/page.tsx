@@ -1,72 +1,71 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { notFound } from "next/navigation";
+import { CaseStudyPhases } from "@/components/CaseStudyPhases";
+import { DoubleDiamond } from "@/components/DoubleDiamond";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { Chip, FilledLink, Icon } from "@/components/m3";
+import { getWork } from "@/data/works";
+
+const work = getWork("tteugae-together");
 
 export const metadata: Metadata = {
   title: "뜨개러투게더 — 한다영 포트폴리오",
   description:
-    "뜨개 커뮤니티를 위한 서비스 기획·디자인 프로젝트 상세 페이지입니다.",
+    "뜨개 커뮤니티를 위한 서비스 기획·디자인 프로젝트. Discover부터 Solution까지 더블 다이아몬드 과정으로 정리한 케이스 스터디입니다.",
 };
 
 export default function TteugaeTogetherPage() {
+  if (!work) notFound();
+
   return (
     <>
       <Header />
-      <main className="flex-1">
-        <article className="mx-auto w-full max-w-[1280px] px-6 py-section">
+      <main className="flex-1 bg-surface">
+        <article className="mx-auto w-full max-w-[1120px] px-6 py-16 md:py-24">
           <Link
-            href="/#projects"
-            className="text-sm font-medium text-muted-strong transition-colors hover:text-primary"
+            href="/#work"
+            className="inline-flex items-center gap-1 text-sm font-medium text-on-surface hover:underline"
           >
-            ← Projects
+            <Icon name="arrow_forward" className="rotate-180 text-[20px]" />
+            Work
           </Link>
 
-          <p className="mt-8 font-mono text-sm text-primary">2025 · Service Design</p>
-          <h1 className="mt-3 max-w-3xl text-[clamp(2rem,5vw,3rem)] font-bold leading-[1.15] tracking-[-0.03em] text-on-dark">
-            뜨개러투게더
+          <div className="mt-8 flex flex-wrap items-center gap-2">
+            <Chip>{work.tag}</Chip>
+            <span className="text-sm text-on-surface-variant">{work.year}</span>
+          </div>
+          <h1 className="mt-4 max-w-3xl text-[clamp(2.25rem,6vw,3.75rem)] font-medium leading-[1.12] tracking-tight text-on-surface">
+            {work.title}
           </h1>
-          <p className="mt-6 max-w-2xl text-base leading-relaxed text-body md:text-lg">
-            뜨개 커뮤니티를 위한 서비스 기획·디자인 프로젝트입니다. 함께 만들고
-            나누는 경험을 중심으로 사용자 여정, 정보 구조, 시각 시스템을
-            설계했습니다.
+          <p className="mt-5 max-w-2xl text-base leading-7 text-on-surface md:text-lg">
+            {work.summary}
           </p>
 
-          <div className="mt-12 grid gap-6 md:grid-cols-3">
+          <dl className="mt-10 grid gap-3 sm:grid-cols-3">
             {[
-              { label: "Role", value: "기획 · UI/UX 디자인" },
-              { label: "Focus", value: "커뮤니티 · 온보딩 · 콘텐츠 큐레이션" },
-              { label: "Tools", value: "Figma · Photoshop · Illustrator" },
+              { label: "Role", value: work.role },
+              { label: "Focus", value: work.focus },
+              { label: "Tools", value: work.tools.join(" · ") },
             ].map((item) => (
-              <div key={item.label} className="rounded-xl bg-card p-6">
-                <p className="text-xs font-medium text-muted">{item.label}</p>
-                <p className="mt-2 text-sm font-semibold text-on-dark">{item.value}</p>
+              <div key={item.label} className="rounded-[24px] bg-surface-container px-5 py-5">
+                <dt className="text-xs font-medium text-on-surface-variant">{item.label}</dt>
+                <dd className="mt-1 text-sm font-medium leading-6 text-on-surface">{item.value}</dd>
               </div>
             ))}
+          </dl>
+
+          <div className="mt-10">
+            <DoubleDiamond />
           </div>
 
-          <section className="mt-12 max-w-3xl space-y-5 text-base leading-relaxed text-body">
-            <h2 className="text-2xl font-semibold text-on-dark">Overview</h2>
-            <p>
-              뜨개러투게더는 혼자 뜨개를 시작하는 사람과 숙련된 뜨개러가 서로
-              연결되도록 돕는 서비스입니다. 패턴 탐색, 진행 기록, 커뮤니티
-              교류를 하나의 흐름으로 묶어 진입 장벽을 낮추는 것이 목표였습니다.
-            </p>
-            <p>
-              리서치에서 도출된 핵심 니즈를 바탕으로 핵심 시나리오를 정의하고,
-              카드·리스트·디테일 화면의 시각 계층을 정리했습니다. 브랜드 톤은
-              따뜻하면서도 정보가 읽히도록 절제된 컬러와 타이포그래피로
-              구성했습니다.
-            </p>
-          </section>
-
           <div className="mt-12">
-            <Link
-              href="/#contact"
-              className="inline-flex h-10 items-center rounded-md bg-primary px-6 text-sm font-semibold text-on-primary transition-colors hover:bg-primary-active"
-            >
-              연락하기
-            </Link>
+            <CaseStudyPhases work={work} idPrefix="page-" />
+          </div>
+
+          <div className="mt-14">
+            <FilledLink href="/#contact">연락하기</FilledLink>
           </div>
         </article>
       </main>
