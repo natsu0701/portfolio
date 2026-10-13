@@ -5,6 +5,7 @@ import { CaseStudyPhases } from "@/components/CaseStudyPhases";
 import { DoubleDiamond } from "@/components/DoubleDiamond";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { WorkVisuals } from "@/components/WorkVisuals";
 import { Chip, FilledLink, Icon } from "@/components/m3";
 import { getWork } from "@/data/works";
 
@@ -57,6 +58,10 @@ export default function TteugaeTogetherPage() {
           </dl>
 
           <div className="mt-10">
+            <WorkVisuals />
+          </div>
+
+          <div className="mt-12">
             <DoubleDiamond />
           </div>
 

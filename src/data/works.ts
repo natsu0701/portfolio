@@ -28,7 +28,7 @@ export const works: Work[] = [
     tag: "Service Design",
     title: "뜨개러투게더",
     summary:
-      "뜨개 커뮤니티를 위한 서비스 기획·디자인. 함께 만들고 나누는 경험을 중심으로 사용자 여정, 정보 구조, 시각 시스템을 설계했습니다.",
+      "뜨개러와 소통하며 뜨개질의 진입장벽을 낮추고, 기록 관리를 돕는 뜨개 보조 애플리케이션.",
     role: "기획 · UI/UX 디자인",
     focus: "커뮤니티 · 온보딩 · 콘텐츠 큐레이션",
     tools: ["Figma", "Photoshop", "Illustrator"],

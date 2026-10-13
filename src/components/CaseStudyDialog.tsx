@@ -5,6 +5,7 @@ import { useEffect, useId, useRef, useState } from "react";
 import type { PhaseId, Work } from "@/data/works";
 import { CaseStudyPhases } from "@/components/CaseStudyPhases";
 import { DoubleDiamond } from "@/components/DoubleDiamond";
+import { WorkVisuals } from "@/components/WorkVisuals";
 import { Chip, FilledLink, Icon, OutlinedLink } from "@/components/m3";
 
 export function CaseStudyDialog({
@@ -104,7 +105,7 @@ export function CaseStudyDialog({
         role="dialog"
         aria-modal="true"
         aria-labelledby={titleId}
-        className="m3-dialog-panel relative flex max-h-[100dvh] w-full flex-col overflow-hidden bg-surface shadow-[0_8px_28px_rgba(0,0,0,0.22)] sm:max-h-[min(880px,calc(100dvh-48px))] sm:max-w-[880px] sm:rounded-[28px]"
+        className="m3-dialog-panel relative flex max-h-[100dvh] w-full flex-col overflow-hidden bg-surface shadow-[0_8px_28px_rgba(0,0,0,0.22)] sm:max-h-[min(920px,calc(100dvh-48px))] sm:max-w-[1040px] sm:rounded-[28px]"
       >
         <div className="flex items-start justify-between gap-4 px-5 pt-5 sm:px-8 sm:pt-7">
           <div className="min-w-0">
@@ -134,6 +135,9 @@ export function CaseStudyDialog({
 
         <div ref={scrollerRef} className="mt-5 min-h-0 flex-1 overflow-y-auto">
           <div className="px-5 sm:px-8">
+            <WorkVisuals />
+          </div>
+          <div className="mt-10 px-5 sm:px-8">
             <dl className="grid gap-3 sm:grid-cols-3">
               {[
                 { label: "Role", value: work.role },

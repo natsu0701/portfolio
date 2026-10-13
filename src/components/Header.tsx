@@ -30,7 +30,7 @@ export function Header() {
       <div className="mx-auto flex h-16 w-full max-w-[1120px] items-center justify-between px-4 sm:px-6">
         <Link href="/" className="flex items-center gap-2 text-[1.375rem] font-medium tracking-tight text-on-surface">
           <span className="h-3 w-3 rounded-full bg-primary" aria-hidden="true" />
-          HaMong
+          한다영
         </Link>
 
         <nav className="hidden items-center gap-1 md:flex" aria-label="주요 메뉴">
